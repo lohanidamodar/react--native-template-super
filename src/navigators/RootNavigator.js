@@ -1,5 +1,5 @@
 import { StackNavigator, DrawerNavigator } from 'react-navigation';
-import { HomeScreen, ComponentListScreen }  from '../screens';
+import { HomeScreen, ComponentListScreen, LoginScreen }  from '../screens';
 import globalStyles from '../styles/GlobalStyles';
 
 const stackNavOptions = {
@@ -13,7 +13,7 @@ const stackNavOptions = {
     }
 };
 
-export default RootNavigator = DrawerNavigator({
+export const MainNavigator = DrawerNavigator({
     Components: { 
         screen: StackNavigator({
             First: {screen: ComponentListScreen}
@@ -25,3 +25,15 @@ export default RootNavigator = DrawerNavigator({
         },stackNavOptions)
     },
 });
+
+const navConfigs = {
+    headerMode: 'none'
+};
+export default RootNavigator = StackNavigator({
+    Login: {
+        screen: LoginScreen
+    },
+    Home: {
+        screen: MainNavigator
+    }
+},navConfigs)

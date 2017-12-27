@@ -42,7 +42,7 @@ const Button = props => {
     fontWeight,
     disabledStyle,
     fontFamily,
-    containerViewStyle,
+    containerStyle,
     rounded,
     outline,
     transparent,
@@ -124,7 +124,7 @@ const Button = props => {
       style={[
         styles.container,
         raised && styles.raised,
-        containerViewStyle,
+        containerStyle,
         borderRadius && { borderRadius },
       ]}
     >
@@ -211,7 +211,7 @@ Button.propTypes = {
   fontWeight: PropTypes.string,
   disabledStyle: PropTypes.any,
   fontFamily: PropTypes.string,
-  containerViewStyle: PropTypes.any,
+  containerStyle: PropTypes.any,
   rounded: PropTypes.bool,
   outline: PropTypes.bool,
   transparent: PropTypes.bool,
