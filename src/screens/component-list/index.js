@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, ScrollView } from 'react-native';
 import styles from './styles';
-import { Avatar, Button, Divider, Card, Text, Icon } from '../../components';
+import { Avatar, Button, Divider, Card, Text, Icon, FormInput } from '../../components';
 
 class ComponentListScreen extends React.Component{
     static navigationOptions = ({navigation}) => ({
@@ -35,6 +35,12 @@ class ComponentListScreen extends React.Component{
                             containerStyle={{marginRight: 60}}
                         />
                     </View>
+                </Card>
+                <Card title="Text Input">
+                    <FormInput validationMessage="Validation message" label="Label " placeholder="placeholder text" />
+                    <FormInput rounded placeholder="rounded input" />
+                    <FormInput label="Label " placeholder="Placeholder" />
+                    <FormInput placeholder="Placeholder only" />
                 </Card>
                 <Card title="Text from h1 to h4">
                     <Text h1> Heading 1 </Text>
