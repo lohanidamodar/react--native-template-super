@@ -145,8 +145,8 @@ const Button = props => {
             rounded && {
               borderRadius: baseFont.size * 3.8,
               paddingHorizontal: !large
-                ? stylesObject.small.padding * 1.5
-                : stylesObject.button.padding * 1.5,
+                ? styles._small.padding * 1.5
+                : styles._button.padding * 1.5,
             },
             outline && {
               borderWidth: 1,
