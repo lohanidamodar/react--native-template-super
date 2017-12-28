@@ -1,7 +1,12 @@
-import { AUTH__LOGGED_IN } from '../actions/actionTypes';
+import { AUTH__LOGGED_IN, AUTH__UPDATE_USER } from '../actions/actionTypes';
 
 const initialState = {
-    isLoggedIn: false
+    isLoggedIn: false,
+    user: {
+        fullName: 'John Doe',
+        username: 'johndoe',
+        email: 'john@doe.com'
+    }
 };
     
 export default (state = initialState, action) => {
@@ -10,6 +15,12 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 isLoggedIn: action.isLoggedIn
+            }
+        }
+        case AUTH__UPDATE_USER: {
+            return {
+                ...state,
+                user: action.user
             }
         }
         default: {

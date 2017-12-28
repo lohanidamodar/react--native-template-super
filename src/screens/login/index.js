@@ -13,11 +13,6 @@ class LoginScreen extends Component{
         error: null,
         loading: false
     }
-
-    toHome = NavigationActions.reset({
-        index: 0,
-        actions: [NavigationActions.navigate({routeName: 'Home'})]
-    })
     
     toSignup = NavigationActions.reset({
         index: 0,
@@ -29,7 +24,6 @@ class LoginScreen extends Component{
         this.setState({loading: true});
         this.setState({loading: false});
         this.props.dispatch(login(true));
-        this.props.navigation.dispatch(this.toHome);
     }
 
     handleRegisterPress = () =>{
