@@ -8,7 +8,8 @@ export default styles = EStyleSheet.create({
     },
     overlay: {
         flex: 1,
-        backgroundColor: 'rgba(0,0,0,0.7)',
+        // backgroundColor: 'rgba(0,0,0,0.7)',
+        backgroundColor: '$primaryColor',
         padding: '$containerPadding'
     },
     error: {
@@ -17,7 +18,6 @@ export default styles = EStyleSheet.create({
     formContainer:{
         marginBottom: 'auto',
         marginTop: 'auto',
-
     },
     signupContainer: {
         justifyContent: 'center',
@@ -29,7 +29,7 @@ export default styles = EStyleSheet.create({
     },
     forgotPasswordText: {
         fontSize: 16,
-        color: '$secondaryColor'
+        color: 'white'
     },
     registerText: {
         color: '$accentColor'

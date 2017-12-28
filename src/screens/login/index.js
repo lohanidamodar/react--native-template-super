@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { View, ImageBackground, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
-import { Text, Button, Card, FormInput } from '../../components';
+import { Text, Button, Card, FormInput, Icon } from '../../components';
 import { NavigationActions } from 'react-navigation';
 import styles from './styles';
-// import { login, updateUser } from '../../state/actions';
 
 class LoginScreen extends Component{
     state = {
@@ -26,34 +25,19 @@ class LoginScreen extends Component{
     
 
     handleLoginPress = () => {
-        // this.setState({loading: true});
-        // Api.login(this.state.username, this.state.password).then(user=>{
-        //     this.setState({loading: false});
-        //     this.props.dispatch(login(true));
-        //     user = {
-        //         id: user.id,
-        //         username: user.get('username'),
-        //         email: user.get('email'),
-        //         fullName: user.get('fullName')
-        //     }
-        //     this.props.dispatch(updateUser(user));
-        //     this.props.navigation.dispatch(this.toHome);
-        // }).catch(error=>{
-        //     console.log('Login error', error);
-        //     this.setState({error: error, loading: false});
-        // })
+        
     }
 
     handleRegisterPress = () =>{
-        // this.props.navigation.dispatch(this.toSignup);
+        
     }
     
     render(){
         return(
-            // <ImageBackground source={require('../../assets/login_background.jpg')} style={styles.container}>
                 <View style={styles.overlay}>
                     <View style={styles.formContainer}>
-                        <Card title="LOGIN">
+                        <Icon style={{alignSelf: 'center'}} color="#ffffff" name="bulb" size={150} />
+                        <Card>
                             <FormInput
                                 rounded
                                 autoCapitalize="none"
@@ -69,16 +53,15 @@ class LoginScreen extends Component{
                             />
                             {this.state.error && <Text style={styles.error}>{this.state.error.message}</Text> }
                             <Button loading={this.state.loading} containerStyle={{marginTop: 10}} rounded onPress={this.handleLoginPress} title="LOGIN" />
+                        </Card>
                             <TouchableOpacity style={styles.forgotPassword}>
                                 <Text style={styles.forgotPasswordText}>Forgot my password</Text>
                             </TouchableOpacity>
-                        </Card>
                     </View>
                     <View style={styles.signupContainer}>
-                        <Button onPress={this.handleRegisterPress} rounded secondary title="Create an Account" />
+                        <Button backgroundColor="#fff" color="#333" onPress={this.handleRegisterPress} rounded  title="Create an Account" />
                     </View>
                 </View>
-            // </ImageBackground>
         )
     }
 }
