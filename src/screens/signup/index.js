@@ -28,7 +28,7 @@ class SignupScreen extends Component{
     })
     
     componentDidMount(){
-        console.log(this.inputs)
+        // console.log(this.inputs)
     }
 
     handleRegisterPress = () => {
@@ -52,6 +52,15 @@ class SignupScreen extends Component{
         this.props.navigation.dispatch(this.toLogin);
     }
     
+    handleSubmit = (next) => {
+        if(!next){
+            this.handleRegisterPress();
+            return;
+        }else{
+            this.inputs[next].focus()
+        }
+    }
+
     render(){
         return(
             <ScrollView
@@ -66,6 +75,9 @@ class SignupScreen extends Component{
                             onChangeText={text=>this.setState({fullName: text})}
                             placeholder="full name"
                             autoCapitalize="words"
+                            blurOnSubmit={false}
+                            returnKeyType="next"
+                            onSubmitEditing={()=>this.handleSubmit(1)}
                             />
                         <FormInput
                             autoCapitalize="none"
@@ -73,12 +85,20 @@ class SignupScreen extends Component{
                             onChangeText={text=>this.setState({email: text})}
                             placeholder="email"
                             keyboardType="email-address"
+                            blurOnSubmit={false}
+                            returnKeyType="next"
+                            textInputRef={input=>this.inputs[1] = input}
+                            onSubmitEditing={()=>this.handleSubmit(2)}
                             />
                         <FormInput
                             rounded
                             autoCapitalize="none"
                             onChangeText={text=>this.setState({username: text})}
                             placeholder="username"
+                            blurOnSubmit={false}
+                            returnKeyType="next"
+                            textInputRef={input=>this.inputs[2] = input}
+                            onSubmitEditing={()=>this.handleSubmit(3)}
                             />
                         <FormInput
                             rounded
@@ -86,14 +106,21 @@ class SignupScreen extends Component{
                             onChangeText={text=>this.setState({password: text})}
                             placeholder="password"
                             secureTextEntry={true}
-                        />
+                            blurOnSubmit={false}
+                            returnKeyType="next"
+                            textInputRef={input=>this.inputs[3] = input}
+                            onSubmitEditing={()=>this.handleSubmit(4)}
+                            />
                         <FormInput
                             rounded
                             autoCapitalize="none"
                             onChangeText={text=>this.setState({confirmPassword: text})}
                             placeholder="confirm password"
                             secureTextEntry={true}
-                        />
+                            returnKeyType="go"
+                            textInputRef={input=>this.inputs[4] = input}
+                            onSubmitEditing={()=>this.handleSubmit()}
+                            />
                         {this.state.error && <Text style={styles.error}>{this.state.error.message}</Text> }
                         <Button loading={this.state.loading} containerStyle={{marginTop: 10}}  rounded onPress={this.handleRegisterPress} title="REGISTER" />
                     </Card>

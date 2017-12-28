@@ -10,13 +10,14 @@ import styles from './styles';
 class FormInput extends Component{
 
     render() {
-        const { label, containerStyle, validationMessage, validationProps, placeholder, labelProps, inputProps, rounded, ...attributes } = this.props;
+        const { label, containerStyle, validationMessage, validationProps, placeholder, labelProps, inputProps, rounded, textInputRef, ...attributes } = this.props;
         return(
             <View 
                 style={[styles.container, containerStyle && containerStyle ]}
             >
                 {label && <Label {...labelProps}>{label}</Label>}
                 <Input
+                    ref={textInputRef}
                     rounded={rounded}
                     {...inputProps} placeholder={placeholder} {...attributes} />
                 {validationMessage && <ValidationMessage {...validationProps}>{validationMessage}</ValidationMessage>}
