@@ -29,7 +29,7 @@ class LoginScreen extends Component{
     }
 
     handleRegisterPress = () =>{
-        
+        this.props.navigation.dispatch(this.toSignup)
     }
     
     render(){
