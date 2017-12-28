@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Text, Button, Card, FormInput, Icon } from '../../components';
 import { NavigationActions } from 'react-navigation';
 import styles from './styles';
+import { login } from '../../store/actions/authActions'
 
 class LoginScreen extends Component{
     state = {
@@ -25,7 +26,10 @@ class LoginScreen extends Component{
     
 
     handleLoginPress = () => {
-        
+        this.setState({loading: true});
+        this.setState({loading: false});
+        this.props.dispatch(login(true));
+        this.props.navigation.dispatch(this.toHome);
     }
 
     handleRegisterPress = () =>{

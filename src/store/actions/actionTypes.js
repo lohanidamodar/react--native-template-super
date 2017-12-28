@@ -1,0 +1,1 @@
+export const AUTH__LOGGED_IN = 'AUTH/LOGGED_IN'
