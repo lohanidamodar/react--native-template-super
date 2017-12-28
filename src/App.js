@@ -3,8 +3,8 @@ import { Text, StatusBar } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/es/integration/react';
-import createStore from './store';
-import RootNav from './navigators/RootNavigator';
+import createStore from './store/store';
+import Main from './navigators/Main'
 import bootstrap from './bootstrap';
 import globalStyles from './styles/GlobalStyles';
 
@@ -28,7 +28,7 @@ let App = () => {
           backgroundColor={globalStyles.$statusBarColor}
           barStyle="light-content"
           />
-        <RootNav />
+        <Main />
       </PersistGate>
     </Provider>
   );
