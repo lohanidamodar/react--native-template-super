@@ -13,7 +13,7 @@ const stackNavOptions = {
     }
 };
 
-export const MainNavigator = DrawerNavigator({
+export const MainStack = DrawerNavigator({
     Components: { 
         screen: StackNavigator({
             First: {screen: ComponentListScreen}
@@ -29,14 +29,11 @@ export const MainNavigator = DrawerNavigator({
 const navConfigs = {
     headerMode: 'none'
 };
-export default RootNavigator = StackNavigator({
+export const LoginStack = StackNavigator({
     Login: {
         screen: LoginScreen
     },
     Signup: {
         screen: SignupScreen
-    },
-    Home: {
-        screen: MainNavigator
     }
 },navConfigs)
