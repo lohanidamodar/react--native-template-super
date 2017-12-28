@@ -1,5 +1,7 @@
+import React from 'react'
 import { StackNavigator, DrawerNavigator } from 'react-navigation';
 import { HomeScreen, ComponentListScreen, LoginScreen, SignupScreen, ProfileScreen, EditProfileScreen }  from '../screens';
+import { DrawerMenu } from '../components'
 import globalStyles from '../styles/GlobalStyles';
 
 const stackNavOptions = {
@@ -26,14 +28,12 @@ export const MainStack = DrawerNavigator({
     },
     Profile: {
         screen: StackNavigator({
-            First: {screen: ProfileScreen}
-        }, stackNavOptions)
-    },
-    EditProfile: {
-        screen: StackNavigator({
-            First: {screen: EditProfileScreen}
+            First: {screen: ProfileScreen},
+            EditProfile: {screen: EditProfileScreen}
         }, stackNavOptions)
     }
+},{
+    contentComponent: props => <DrawerMenu {...props} />
 });
 
 const navConfigs = {
