@@ -9,7 +9,7 @@ const handleMenuPress = (navigation) => {
     navigation.navigate('DrawerToggle')
 }
 
-const stackNavOptions = {
+const primaryStackNavOptions = {
     navigationOptions: ({navigation})=>({
         headerStyle: globalStyles.headerStyle,
         headerTitleStyle: globalStyles.headerTitleStyle,
@@ -21,22 +21,34 @@ const stackNavOptions = {
     },
 };
 
+const secondaryStackNavOptions = {
+    navigationOptions: ({navigation})=>({
+        headerStyle: globalStyles.headerStyle,
+        headerTitleStyle: globalStyles.headerTitleStyle,
+        headerTintColor: "#fff"
+    }),
+    headerType: 'screen',
+    cardStyle: {
+        backgroundColor: '#fff',
+    },
+}
+
 export const MainStack = DrawerNavigator({
     Components: { 
         screen: StackNavigator({
             First: {screen: ComponentListScreen}
-        },stackNavOptions)
+        },primaryStackNavOptions)
     },
     Home: { 
         screen: StackNavigator({
             First: {screen:HomeScreen}
-        },stackNavOptions)
+        },primaryStackNavOptions)
     },
     Profile: {
         screen: StackNavigator({
             First: {screen: ProfileScreen},
             EditProfile: {screen: EditProfileScreen}
-        }, stackNavOptions)
+        }, secondaryStackNavOptions)
     }
 },{
     contentComponent: props => <DrawerMenu {...props} />
