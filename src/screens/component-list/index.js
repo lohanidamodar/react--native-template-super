@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, ScrollView } from 'react-native';
 import styles from './styles';
-import { Button, Divider, Card, Text, Icon } from '../../components';
+import { Avatar, Button, Divider, Card, Text, Icon, FormInput } from '../../components';
 
 class ComponentListScreen extends React.Component{
     static navigationOptions = ({navigation}) => ({
@@ -11,6 +11,37 @@ class ComponentListScreen extends React.Component{
     render(){
         return(
             <ScrollView style={styles.container}>
+                <Card title="Avatar">
+                    <View style={{flexDirection: 'row'}} >
+                        <Avatar
+                            large
+                            rounded
+                            title="MT"
+                            onPress={() => console.log("Works!")}
+                            activeOpacity={0.7}
+                        />
+                        <Avatar
+                            large
+                            rounded
+                            source={{uri: "https://i.ytimg.com/vi/uDBtDh9Y2as/maxresdefault.jpg"}}
+                            activeOpacity={0.7}
+                            containerStyle={{marginRight: 60}}
+                        />
+                        <Avatar
+                            rounded
+                            icon={{name: 'home'}}
+                            onPress={() => console.log("Works!")}
+                            activeOpacity={0.7}
+                            containerStyle={{marginRight: 60}}
+                        />
+                    </View>
+                </Card>
+                <Card title="Text Input">
+                    <FormInput validationMessage="Validation message" label="Label " placeholder="placeholder text" />
+                    <FormInput rounded placeholder="rounded input" />
+                    <FormInput label="Label " placeholder="Placeholder" />
+                    <FormInput placeholder="Placeholder only" />
+                </Card>
                 <Card title="Text from h1 to h4">
                     <Text h1> Heading 1 </Text>
                     <Text h2> Heading 2 </Text>
