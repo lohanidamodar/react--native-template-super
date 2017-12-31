@@ -15,7 +15,7 @@ class Icon extends Component {
 				return this.props.name;
 			} else if (typeof ic[this.props.name] === "object") {
 				let name;
-				if (Platform.OS === "ios" && platformStyle !== "material") {
+				if (Platform.OS === "ios") {
 					name = this.props.active ? ic[this.props.name].ios.active : ic[this.props.name].ios.default;
 				} else {
 					name = this.props.active ? ic[this.props.name].android.active : ic[this.props.name].android.default;
